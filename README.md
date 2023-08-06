@@ -9,6 +9,7 @@ protoc --go_out=. --go_opt=paths=source_relative \
 # Working with server
     go run server/main.go  - to run server
     go run test/test_grpc.go  - to run testing program to compare server results with direct endpoint results
+    go run tracker/state_tracker.go  - to run state tracker and dump data to test.json
 
 # Test server with grpcurl
 

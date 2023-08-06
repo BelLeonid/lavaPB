@@ -1,11 +1,16 @@
-# lavaPB
+# Install dependencies
+    go mod download
 
-# Autogenerate PB files:
+# Autogenerate PB files
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     osmosisTest/osmosis.proto
 
-# Test Server with grpcurl
+# Working with server
+    go run server/main.go  - to run server
+    go run test/test_grpc.go  - to run testing program to compare server results with direct endpoint results
+
+# Test server with grpcurl
 
 grpcurl -plaintext localhost:3333 list
 

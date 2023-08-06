@@ -11,10 +11,6 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-const (
-	defaultName = "world"
-)
-
 var (
 	addrTest = "localhost:3333"
 	addrCheck = "grpc.osmosis.zone:9090"

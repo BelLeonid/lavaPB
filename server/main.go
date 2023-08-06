@@ -6,8 +6,6 @@ import (
 	"net"
 	"time"
 
-	// "time"
-
 	pbOsmosis "github.com/BelLeonid/lavaPB/osmosisTest"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

@@ -49,6 +49,7 @@ func main()  {
 		latestBlock := GetLatestBlock(client)
 		log.Println("GetLatestBlock Info")
 		hash := latestBlock.GetBlockId().GetHash()
+		// Here I use base64 encoding, since that is the format that's returned from direct grpcurl call
 		encodedHash := base64.StdEncoding.EncodeToString([]byte(hash))
 		log.Printf("Hash: %v", encodedHash)
 		height := latestBlock.GetBlock().GetHeader().GetHeight()
@@ -69,7 +70,7 @@ func GetLatestBlock (client pb.ServiceClient) (result *pb.GetLatestBlockResponse
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second * 15 )
 	defer cancel()
 	log.Println("Sending grpc")
-	result, err := client.GetLatestBlock(ctx, &pb.GetRequest{}) // works
+	result, err := client.GetLatestBlock(ctx, &pb.GetRequest{})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}

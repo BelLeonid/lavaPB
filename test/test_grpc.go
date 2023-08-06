@@ -47,7 +47,7 @@ func GetLatestBlock (client pb.ServiceClient) (result *pb.GetLatestBlockResponse
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second * 15 )
 	defer cancel()
 	log.Println("Sending grpc")
-	result, err := client.GetLatestBlock(ctx, &pb.GetRequest{}) // works
+	result, err := client.GetLatestBlock(ctx, &pb.GetRequest{})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
